@@ -2,19 +2,19 @@ $(document).ready(function() {
   $("#userInput").submit(function(event) {
     event.preventDefault();
 
-    var inputString = $("#sentence").val();
-    var strings = inputString.split("");
-
-
-    for (index = 0; index < strings.length; index +=1) {
-      if (strings[index] === "a" || strings[index] === "e" || strings[index] === "i" || strings[index] === "o" || strings[index] === "u") {
-        strings[index] = "-";
-      }
-    }
+    var string = $("#sentence").val();
     var newString = "";
-    for (index = 0; index < strings.length; index+=1) {
-      var newString = newString + strings[index];
-    }
+    for (index = 0; index < string.length; index +=1) {
+
+      if (string.charAt(index) === "a" || string.charAt(index) === "e" || string.charAt(index) === "i" || string.charAt(index) === "o" || string.charAt(index) === "u") {
+      newString = newString.concat("-");
+
+      } else {
+      newString = newString.concat(string.charAt(index));
+    };
+
+    };
+    alert(newString);
 
     $(".display").text(newString);
   })
